@@ -1,0 +1,141 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+    <style>
+        body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #7abecc !important;
+    }
+    input{
+        width: 100%;
+        height: 35px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+    .user_card_left {
+        width: 486px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 3px;
+    margin-top: 113px;
+    margin-left: 35px;
+        margin-bottom: auto;
+        background: #74cfbf;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+    .delbtn{
+        margin: 10;
+        background-color:orange;
+        color:#fff;
+        border-radius: 3px;
+        padding: 1px;
+        text-decoration: none;
+    }
+    .upbtn{
+        margin: 10;
+        background-color:lightseagreen;
+        color:#fff;
+        border-radius: 3px;
+        padding: 1px;
+        text-decoration: none;
+    }
+    h2 {
+        display: block;
+    font-size: 1.5em;
+    margin-block-start: -8.17em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 265px;
+    margin-inline-end: 00px;
+    font-weight: bold;
+}
+    .user_card_right {
+        width: 700px;;
+        height: 400px;
+        padding: 20px;
+        border-radius: 3px;
+        margin-top: -420px;
+    margin-left: 567px;
+        margin-bottom: auto;
+        background: #74cfbf;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+
+    </style> 
+<head>  
+    <meta charset="UTF-8">  
+    <title>Student Records</title>  
+     {% load static %}  
+  
+</head>  
+<body> 
+    <div class="user_card_left">
+        <center>
+    <h1 id="">Student Registration  </h1>
+    
+    <form method="POST" action="/">
+        
+        {% csrf_token %}
+        <div>
+            <table>
+           <td> {{form}} </td>
+            </table>
+        </div>
+        
+        <input class="" type='submit' name="create" value="Add New Data">
+    </div>
+<div class="user_card_right">
+    <h2 id="">Student Record  </h2>
+<table class="">  
+    <thead class="">  
+    <tr>  
+        <th>Student Name</th>  
+        <th>Student Age</th>  
+        <th>Student Collage</th>  
+        <th>Student Semester</th>  
+        <th>Student Branch</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for datas in data %}  
+    <tr>  
+        <td>{{ datas.name }}</td>  
+        <td>{{ datas.age }}</td>  
+        <td>{{ datas.collage }}</td>  
+        <td>{{ datas.semester }}</td>
+        <td>{{ datas.branch }}</td>   
+        
+        <td>  
+            <a class="upbtn" href=" {% url 'updatedata' datas.id %}">Edit</a>  
+            <a class="delbtn" href="{% url 'deletedata' datas.id %}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+</div>
+</body>  
+</html>  

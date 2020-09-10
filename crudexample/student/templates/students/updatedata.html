@@ -1,0 +1,56 @@
+<style>
+    body,
+    html {
+        margin: 0;
+        margin-top: 30;
+        padding: 0;
+        height: 100%;
+        background: #7abecc !important;
+    }
+    .user_card {
+        width: 600px;
+        height: 500px;
+        padding: 20px;
+        border-radius: 3px;
+        margin-top: -26px;
+        margin-left: 350;
+        margin-bottom: auto;
+        background: #74cfbf;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+    input{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+    .login_btn {
+        width: 100%;
+        height: 40;
+        background: #33ccff !important;
+        color: white !important;
+    }
+    #form-title{
+        color: #fff;
+    }
+</style>
+<div class="user_card">
+
+<center>
+<h2 id="form-title">Update</h2>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{task}}
+    <input class="btn login_btn" type="submit" name="update " value="Update ">
+</form>
+</center>
+</div>
